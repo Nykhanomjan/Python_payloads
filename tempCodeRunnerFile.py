@@ -30,7 +30,7 @@ try:
     response= session.get(login_url,timeout=1)
     pattern_token = r'name="csrf_token" value="(.*?)"'
     pattern_math_captcha = r'What is (.*?)\?'
-    match_token = re.search(pattern_token,response.text)
+    match_token = re.search(pattern_math_captcha,response.text)
     match_captcha = re.search(pattern_math_captcha,response.text)
 
     if match_token :
@@ -60,13 +60,13 @@ data_to_send_login = {
 
 try:
     response_login = session.post(url=login_url,data=data_to_send_login,timeout=1)
-    if "/verify-2fa" in response_login.text or "2FA" in response_login.text:
+    if "/verify-2fa" in response_login.txt or "2FA" in response_login.text:
         otp_log = session.get(log_url)
-        otp_data = otp_log.json()
+        otp_data = otp_log.json
         otp= otp_data[-1]["otp"]
 
         data_to_send_otp = {
-        "otp":otp
+        "otp",otp
         }    
         response = session.post(twoft_url,data_to_send_otp,timeout=1)
         if "Welcome" in response.text :
