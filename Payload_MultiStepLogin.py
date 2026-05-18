@@ -12,7 +12,7 @@
 # จงเขียนโค้ด Python ที่ผ่านด่านทั้ง 5 ข้อนี้แบบรวดเดียวจบ (One-click exploit)
 # คำใบ้: requests.Session() คือหัวใจสำคัญในการจำ State และ Cookie ส่วนการดึง CSRF กับโจทย์เลข ต้องพึ่ง BeautifulSoup หรือ re
 
-#CSRF Token = OTP ประจำหน้าเว็บ หากรีเว็บก็จะเปลี่ยน ป้องกัน hacker นำ
+#CSRF Token = OTP ประจำหน้าเว็บ หากรีเว็บก็จะเปลี่ยน ป้องกัน hacker นำ payload จาก หน้าเว็บที่ไม่ใช่ของเหยื่อส่งมา
 
 import requests
 import re
