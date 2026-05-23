@@ -12,7 +12,7 @@ import string
 
 url = "http://wily-courier.picoctf.net:63039/"
 
-flag = "picoCTF{h0p3fully"
+flag = "picoCTF{"
 
 txt=string.printable
 
