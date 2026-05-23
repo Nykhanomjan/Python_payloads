@@ -4,6 +4,7 @@
 # Additional details will be available after launching your challenge instance.
 
 # level : hard in picoCTF
+# https://learn.cylabacademy.org/library/185?category=1&page=7
 
 import requests
 import string
