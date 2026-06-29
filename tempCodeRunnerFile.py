@@ -1,1 +1,28 @@
-import requests
+# password=['123456', 'password', 'peter', '12345678', 'qwerty', 'peter', '123456789', '12345', 'peter', '1234', '111111', 'peter', '1234567', 'dragon', 'peter', '123123', 'baseball', 'peter', 'abc123', 'football', 'peter', 'monkey', 'letmein', 'peter', 'shadow', 'master', 'peter', '666666', 'qwertyuiop', 'peter', '123321', 'mustang', 'peter', '1234567890', 'michael', 'peter', '654321', 'superman', 'peter', '1qaz2wsx', '7777777', 'peter', '121212', '000000', 'peter', 'qazwsx', '123qwe', 'peter', 'killer', 'trustno1', 'peter', 'jordan', 'jennifer', 'peter', 'zxcvbnm', 'asdfgh', 'peter', 'hunter', 'buster', 'peter', 'soccer', 'harley', 'peter', 'batman', 'andrew', 'peter', 'tigger', 'sunshine', 'peter', 'iloveyou', '2000', 'peter', 'charlie', 'robert', 'peter', 'thomas', 'hockey', 'peter', 'ranger', 'daniel', 'peter', 'starwars', 'klaster', 'peter', '112233', 'george', 'peter', 'computer', 'michelle', 'peter', 'jessica', 'pepper', 'peter', '1111', 'zxcvbn', 'peter', '555555', '11111111', 'peter', '131313', 'freedom', 'peter', '777777', 'pass', 'peter', 'maggie', '159753', 'peter', 'aaaaaa', 'ginger', 'peter', 'princess', 'joshua', 'peter', 'cheese', 'amanda', 'peter', 'summer', 'love', 'peter', 'ashley', 'nicole', 'peter', 'chelsea', 'biteme', 'peter', 'matthew', 'access', 'peter', 'yankees', '987654321', 'peter', 'dallas', 'austin', 'peter', 'thunder', 'taylor', 'peter', 'matrix', 'mobilemail', 'peter', 'mom', 'monitor', 'peter', 'monitoring', 'montana', 'peter', 'moon', 'moscow']
+# # print(len(password))
+# # username=[]
+# # for i in range(149):
+# #     if (i+1)%3==0:
+# #         username.append("wiener")
+# #     else:
+# #         username.append("calos")
+# # print(username,len(username))
+# cnt=1
+# passwords=[]
+# while True:
+#     x=input()
+#     if x=='':
+#         break
+#     if cnt%3==0:
+#         passwords.append("peter")
+#         passwords.append(x)
+#         cnt+=1
+#     else:
+#         passwords.append(x)
+#     cnt+=1
+# print(passwords)
+x='carlos'
+username=[]
+for i in range(100):
+    username.append(x)
+print(username)
